@@ -1,0 +1,130 @@
+.header{
+  background-color: rgb(104, 70, 11);
+  color:white;
+  text-decoration: none;
+  border-radius: 5px;
+  max-width: 100%;
+  align-items: center;
+  justify-content:space-between ;
+  padding: 16px 24px;
+  display: flex;
+}
+.header-nav {
+  display: flex;
+  gap: 16px; 
+}
+.nav-link {
+  color: rgb(8, 5, 5);
+  text-decoration: none;
+background: rgb(24, 83, 170);
+font-family: 'Times New Roman', Times, serif
+}
+
+
+.hero-text {
+display: flex;
+justify-content: space-between;
+
+}
+.footer {
+background-color:rgb(75, 122, 224);
+color: rgb(19, 18, 18);
+padding: 24px;
+margin-top: 40px;
+
+}
+
+.footer-nav {
+display: flex;
+justify-content: center;
+gap: 24px;
+margin-bottom: 12px;
+
+
+}
+.footer-lank {
+  text-decoration: underline;
+}
+
+.projekt {
+  padding: 40px;
+}
+
+.projekt-grid {
+display: flex;
+gap: 24px;
+
+}
+
+.projekt-kort {
+  background-color: rgb(14, 122, 88);
+  border-radius: 8px;
+  padding: 24px;
+  flex: 1;
+}
+
+
+.kontakt {
+  padding: 60px 40px;
+  background: white;
+  text-align: center;
+
+}
+
+.kontakt-box {
+background: white;
+border-radius: 12px;
+padding: 40px;
+max-width: 500px;
+margin: 0 auto;
+box-shadow: 0 4px 16px rgba(rgb(132, 18, 18), green, blue, alpha);
+
+}
+.kontakt-box h2 {
+  margin-bottom: 8px;
+  color: black;
+}
+
+.kontakt-text {
+  color: blanchedalmond;
+  margin-bottom: 24px;
+}
+
+.kontakt-input {
+  padding: 12px 14px;
+  border: 1px solid rgb(25, 28, 97);
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.kontakt-input:focus {
+  border-color: rgb(111, 111, 241);
+
+}
+
+.kontakt-knapp {
+  padding: 12px;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.kontakt-knapp:hover {
+  background: blue;
+
+}
+
+.footer {
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+}
+
