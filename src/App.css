@@ -1,130 +1,389 @@
-.header{
-  background-color: rgb(104, 70, 11);
-  color:white;
+/* Färgpalett
+   --bg:        #021024  (mörkaste, bakgrund)
+   --surface:   #052659  (kort, ytor)
+   --mid:       #5483B3  (accenter, kanter)
+   --light:     #7DA0CA  (sekundär text, ikoner)
+   --pale:      #C1E8FF  (ljus text, highlights)
+*/
+
+/* ── Knappar ─────────────────────────────────────── */
+.knapp {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #5483B3, #7DA0CA);
+  color: #021024;
   text-decoration: none;
-  border-radius: 5px;
-  max-width: 100%;
-  align-items: center;
-  justify-content:space-between ;
-  padding: 16px 24px;
-  display: flex;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+.knapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(84, 131, 179, 0.5);
+}
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #d0dce8;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1,
+.header-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-decoration: none;
+  background: none;
+  -webkit-text-fill-color: #1a1a2e;
+}
+
 .header-nav {
   display: flex;
-  gap: 16px; 
-}
-.nav-link {
-  color: rgb(8, 5, 5);
-  text-decoration: none;
-background: rgb(24, 83, 170);
-font-family: 'Times New Roman', Times, serif
+  gap: 8px;
 }
 
+.nav-lank {
+  color: #5483B3;
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-lank:hover {
+  color: #1a1a2e;
+  background: rgba(84, 131, 179, 0.1);
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding: 100px 64px;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(2, 16, 36, 0.75) 40%, rgba(2, 16, 36, 0.2) 100%);
+}
 
 .hero-text {
-display: flex;
-justify-content: space-between;
-
-}
-.footer {
-background-color:rgb(75, 122, 224);
-color: rgb(19, 18, 18);
-padding: 24px;
-margin-top: 40px;
-
+  position: relative;
+  max-width: 540px;
 }
 
-.footer-nav {
-display: flex;
-justify-content: center;
-gap: 24px;
-margin-bottom: 12px;
-
-
-}
-.footer-lank {
-  text-decoration: underline;
+.hero-superscript {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #7DA0CA;
+  margin-bottom: 16px !important;
 }
 
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+  max-width: 560px;
+}
+
+.hero-text p {
+  color: #C1E8FF;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  max-width: 480px;
+}
+
+/* ── Projekt ─────────────────────────────────────── */
 .projekt {
-  padding: 40px;
+  padding: 80px 48px;
+  background: #f4f6f8;
+}
+
+.projekt h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a2e;
+}
+
+.projekt h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, #5483B3, #7DA0CA);
+  border-radius: 2px;
+  margin-top: 10px;
 }
 
 .projekt-grid {
-display: flex;
-gap: 24px;
-
+  display: flex;
+  gap: 24px;
 }
 
 .projekt-kort {
-  background-color: rgb(14, 122, 88);
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e0e6ed;
+  border-radius: 16px;
   padding: 24px;
   flex: 1;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 
+.projekt-kort:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(84, 131, 179, 0.15);
+  border-color: #5483B3;
+}
 
+.projekt-kort h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a2e;
+}
+
+.projekt-kort p {
+  color: #5483B3;
+  font-size: 0.95rem;
+}
+
+/* ── Kontakt ─────────────────────────────────────── */
 .kontakt {
-  padding: 60px 40px;
-  background: white;
+  padding: 80px 48px;
+  background: #eaf1f8;
+  border-top: 1px solid #d0dce8;
+  border-bottom: 1px solid #d0dce8;
   text-align: center;
-
 }
 
 .kontakt-box {
-background: white;
-border-radius: 12px;
-padding: 40px;
-max-width: 500px;
-margin: 0 auto;
-box-shadow: 0 4px 16px rgba(rgb(132, 18, 18), green, blue, alpha);
-
+  background: #ffffff;
+  border: 1px solid #d0dce8;
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(84, 131, 179, 0.08);
 }
+
 .kontakt-box h2 {
-  margin-bottom: 8px;
-  color: black;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
 }
 
 .kontakt-text {
-  color: blanchedalmond;
-  margin-bottom: 24px;
+  color: #5483B3;
+  margin-bottom: 28px;
+}
+
+.kontakt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
 }
 
 .kontakt-input {
-  padding: 12px 14px;
-  border: 1px solid rgb(25, 28, 97);
-  border-radius: 8px;
+  padding: 13px 16px;
+  background: #f4f6f8;
+  border: 1px solid #d0dce8;
+  border-radius: 10px;
   font-size: 15px;
+  color: #1a1a2e;
   outline: none;
-  transition: border 0.2s;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.kontakt-input::placeholder {
+  color: #9ab3cc;
 }
 
 .kontakt-input:focus {
-  border-color: rgb(111, 111, 241);
-
+  border-color: #5483B3;
+  background: #ffffff;
 }
 
 .kontakt-knapp {
-  padding: 12px;
-  background: blue;
-  color: white;
+  padding: 14px;
+  background: linear-gradient(135deg, #5483B3, #7DA0CA);
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: inherit;
 }
 
 .kontakt-knapp:hover {
-  background: blue;
-
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(84, 131, 179, 0.35);
 }
 
+/* ── Footer ──────────────────────────────────────── */
 .footer {
-  background-color: lightblue;
-  color: white;
+  background: #dde6ef;
+  color: #5483B3;
   text-align: center;
-  padding: 24px;
-  margin-top: 40px;
+  padding: 32px 48px;
+  border-top: 1px solid #c8d6e3;
 }
 
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.footer-lank {
+  color: #5483B3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-lank:hover {
+  color: #1a1a2e;
+}
+
+.footer p {
+  font-size: 13px;
+  color: #7DA0CA;
+}
+
+.kontakt-bekraftelse {
+  color: #3a7d44;
+  background: #eafbee;
+  border: 1px solid #a8ddb5;
+  border-radius: 10px;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 8px;
+  
+}
+
+.visa-mer-knapp {
+  display: inline-block;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #5483B3;
+  border: 1px solid #5483B3;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.visa-mer-knapp:hover {
+  background: #5483B3;
+  color: #ffffff;
+}
+
+.projekt-beskrivning {
+  margin-top: 12px;
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.foretag-bild {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 12px 32px rgba(2, 16, 36, 0.5);
+}
+
+/* ── Om mig ───────────────────────────────────────── */
+.om-mig {
+  padding: 80px 48px;
+  background: #f4f6f8;
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.om-mig-box {
+  background: #ffffff;
+  border: 1px solid #d0dce8;
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(84, 131, 179, 0.08);
+}
+
+.om-mig h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+}
+
+.om-mig p {
+  color: #5483B3;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.om-mig h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+
+.om-lista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.om-lista li {
+  background: #eaf1f8;
+  color: #5483B3;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #c8d6e3;
+}
