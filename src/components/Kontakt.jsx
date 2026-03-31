@@ -19,7 +19,7 @@ function Kontakt() {
           <form className="kontakt-form" onSubmit={hanteraSkicka}>
             <input className="kontakt-input" type="text" placeholder="Ditt namn" />
             <input className="kontakt-input" type="email" placeholder="Din e-post" />
-            <textarea className="kontakt-input" placeholder="Ditt meddelande" rows="5"></textarea>
+            <textarea className="kontakt-input" placeholder="sammanfattning av dig" rows="5"></textarea>
             <button className="kontakt-knapp" type="submit">Skicka</button>
           </form>
         )}
