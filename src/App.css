@@ -1,27 +1,31 @@
-/* Färgpalett
-   --bg:        #021024  (mörkaste, bakgrund)
-   --surface:   #052659  (kort, ytor)
-   --mid:       #5483B3  (accenter, kanter)
-   --light:     #7DA0CA  (sekundär text, ikoner)
-   --pale:      #C1E8FF  (ljus text, highlights)
-*/
+:root {
+  --bg-page: #060a12;
+  --text-main: #f5f7ff;
+  --text-soft: #9cabcf;
+  --brand-1: #ff7a1a;
+  --brand-2: #ff9f43;
+  --brand-3: #23b5ff;
+  --card-bg: #0d1424;
+  --card-border: #23324e;
+}
 
 /* ── Knappar ─────────────────────────────────────── */
 .knapp {
   display: inline-block;
   margin-top: 14px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #5483B3, #7DA0CA);
-  color: #021024;
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-3));
+  color: #07111f;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 700;
   font-size: 14px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
 }
 .knapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(84, 131, 179, 0.5);
+  box-shadow: 0 10px 28px rgba(255, 122, 26, 0.35);
+  filter: saturate(1.1);
 }
 
 /* ── Header ──────────────────────────────────────── */
@@ -29,10 +33,11 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(6, 10, 18, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid #d0dce8;
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
   padding: 16px 48px;
   display: flex;
   justify-content: space-between;
@@ -41,12 +46,14 @@
 
 .header h1,
 .header-logo {
+  font-family: "Orbitron", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text-main);
   text-decoration: none;
-  background: none;
-  -webkit-text-fill-color: #1a1a2e;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .header-nav {
@@ -55,7 +62,8 @@
 }
 
 .nav-lank {
-  color: #5483B3;
+  border: 1px solid transparent;
+  color: var(--brand-1);
   text-decoration: none;
   padding: 7px 16px;
   border-radius: 8px;
@@ -64,8 +72,9 @@
   transition: color 0.2s, background 0.2s;
 }
 .nav-lank:hover {
-  color: #1a1a2e;
-  background: rgba(84, 131, 179, 0.1);
+  color: #ffffff;
+  background: rgba(255, 122, 26, 0.18);
+  border-color: rgba(255, 122, 26, 0.35);
 }
 
 /* ── Hero ────────────────────────────────────────── */
@@ -77,28 +86,36 @@
   padding: 100px 64px;
   background-size: cover;
   background-position: center;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(2, 16, 36, 0.75) 40%, rgba(2, 16, 36, 0.2) 100%);
+  background: linear-gradient(to right, rgba(6, 10, 18, 0.86) 35%, rgba(35, 181, 255, 0.2) 100%);
 }
 
 .hero-text {
   position: relative;
   max-width: 540px;
+  background: linear-gradient(145deg, rgba(9, 15, 28, 0.55), rgba(9, 15, 28, 0.1));
+  border: 1px solid rgba(255, 122, 26, 0.2);
+  border-radius: 14px;
+  padding: 18px 22px;
+  backdrop-filter: blur(2px);
 }
 
 .hero-superscript {
+  font-family: "Orbitron", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #7DA0CA;
+  color: var(--brand-1);
   margin-bottom: 16px !important;
 }
 
 .hero-text h1 {
+  font-family: "Orbitron", sans-serif;
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.2;
@@ -108,7 +125,7 @@
 }
 
 .hero-text p {
-  color: #C1E8FF;
+  color: #c9d8ff;
   font-size: 1rem;
   margin-bottom: 10px;
   max-width: 480px;
@@ -117,14 +134,15 @@
 /* ── Projekt ─────────────────────────────────────── */
 .projekt {
   padding: 80px 48px;
-  background: #f4f6f8;
+  background: linear-gradient(180deg, #070c16 0%, #091223 100%);
 }
 
 .projekt h2 {
+  font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 40px;
-  color: #1a1a2e;
+  color: var(--text-main);
 }
 
 .projekt h2::after {
@@ -132,7 +150,7 @@
   display: block;
   width: 48px;
   height: 4px;
-  background: linear-gradient(90deg, #5483B3, #7DA0CA);
+  background: linear-gradient(90deg, var(--brand-2), var(--brand-3));
   border-radius: 2px;
   margin-top: 10px;
 }
@@ -143,60 +161,71 @@
 }
 
 .projekt-kort {
-  background: #ffffff;
-  border: 1px solid #e0e6ed;
+  background: linear-gradient(180deg, #101a2c 0%, #0a1221 100%);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 24px;
   flex: 1;
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.projekt-kort::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 122, 26, 0.08), transparent 30%, transparent 70%, rgba(35, 181, 255, 0.08));
+  pointer-events: none;
 }
 
 .projekt-kort:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(84, 131, 179, 0.15);
-  border-color: #5483B3;
+  box-shadow: 0 14px 34px rgba(255, 122, 26, 0.22);
+  border-color: var(--brand-1);
 }
 
 .projekt-kort h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #1a1a2e;
+  color: var(--text-main);
 }
 
 .projekt-kort p {
-  color: #5483B3;
+  color: var(--brand-1);
   font-size: 0.95rem;
 }
 
 /* ── Kontakt ─────────────────────────────────────── */
 .kontakt {
   padding: 80px 48px;
-  background: #eaf1f8;
-  border-top: 1px solid #d0dce8;
-  border-bottom: 1px solid #d0dce8;
+  background: linear-gradient(180deg, #070c16 0%, #0a1222 100%);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
   text-align: center;
 }
 
 .kontakt-box {
-  background: #ffffff;
-  border: 1px solid #d0dce8;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 48px;
   max-width: 520px;
   margin: 0 auto;
-  box-shadow: 0 4px 24px rgba(84, 131, 179, 0.08);
+  box-shadow: 0 8px 28px rgba(91, 108, 255, 0.12);
 }
 
 .kontakt-box h2 {
+  font-family: "Orbitron", sans-serif;
   margin-bottom: 10px;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text-main);
 }
 
 .kontakt-text {
-  color: #5483B3;
+  color: var(--text-soft);
   margin-bottom: 28px;
 }
 
@@ -209,11 +238,11 @@
 
 .kontakt-input {
   padding: 13px 16px;
-  background: #f4f6f8;
-  border: 1px solid #d0dce8;
+  background: #0c1729;
+  border: 1px solid #243652;
   border-radius: 10px;
   font-size: 15px;
-  color: #1a1a2e;
+  color: var(--text-main);
   outline: none;
   transition: border-color 0.2s, background 0.2s;
   font-family: inherit;
@@ -221,17 +250,17 @@
 }
 
 .kontakt-input::placeholder {
-  color: #9ab3cc;
+  color: #6f86ae;
 }
 
 .kontakt-input:focus {
-  border-color: #5483B3;
-  background: #ffffff;
+  border-color: var(--brand-1);
+  background: #101d33;
 }
 
 .kontakt-knapp {
   padding: 14px;
-  background: linear-gradient(135deg, #5483B3, #7DA0CA);
+  background: linear-gradient(135deg, var(--brand-2), var(--brand-1));
   color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -244,16 +273,17 @@
 
 .kontakt-knapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(84, 131, 179, 0.35);
+  box-shadow: 0 10px 24px rgba(127, 83, 255, 0.33);
 }
 
 /* ── Footer ──────────────────────────────────────── */
 .footer {
-  background: #dde6ef;
-  color: #5483B3;
+  background: linear-gradient(135deg, #091224 0%, #0d172b 100%);
+  color: var(--brand-1);
   text-align: center;
   padding: 32px 48px;
-  border-top: 1px solid #c8d6e3;
+  border-top: 1px solid var(--card-border);
+  box-shadow: inset 0 1px 0 rgba(35, 181, 255, 0.14);
 }
 
 .footer-nav {
@@ -264,25 +294,25 @@
 }
 
 .footer-lank {
-  color: #5483B3;
+  color: var(--brand-1);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
 }
 
 .footer-lank:hover {
-  color: #1a1a2e;
+  color: var(--text-main);
 }
 
 .footer p {
   font-size: 13px;
-  color: #7DA0CA;
+  color: #7f93b8;
 }
 
 .kontakt-bekraftelse {
-  color: #3a7d44;
-  background: #eafbee;
-  border: 1px solid #a8ddb5;
+  color: #b7f7d0;
+  background: #0f2b24;
+  border: 1px solid #2b6e5f;
   border-radius: 10px;
   padding: 20px;
   font-weight: 600;
@@ -299,8 +329,8 @@
   margin-right: 10px;
   padding: 8px 16px;
   background: transparent;
-  color: #5483B3;
-  border: 1px solid #5483B3;
+  color: var(--brand-1);
+  border: 1px solid var(--brand-1);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
@@ -310,28 +340,33 @@
 }
 
 .visa-mer-knapp:hover {
-  background: #5483B3;
+  background: var(--brand-1);
   color: #ffffff;
 }
 
 .projekt-beskrivning {
   margin-top: 12px;
-  color: #444;
+  color: #9fb0d4;
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
 .foretag-bild {
-  width: 100%;
+  display: block;
+  width: min(100%, 260px);
+  height: 160px;
+  object-fit: cover;
   border-radius: 12px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 0 12px 32px rgba(2, 16, 36, 0.5);
 }
 
 /* ── Om mig ───────────────────────────────────────── */
 .om-mig {
   padding: 80px 48px;
-  background: #f4f6f8;
+  background: linear-gradient(180deg, #070c16 0%, #0a1222 100%);
   min-height: calc(100vh - 130px);
   display: flex;
   align-items: flex-start;
@@ -339,33 +374,46 @@
 }
 
 .om-mig-box {
-  background: #ffffff;
-  border: 1px solid #d0dce8;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 48px;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 4px 24px rgba(84, 131, 179, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.om-mig-box::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 122, 26, 0.45), rgba(35, 181, 255, 0.45));
 }
 
 .om-mig h2 {
+  font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #1a1a2e;
+  color: var(--text-main);
 }
 
 .om-mig p {
-  color: #5483B3;
+  color: var(--text-soft);
   font-size: 1rem;
   margin-bottom: 12px;
   line-height: 1.7;
 }
 
 .om-mig h3 {
+  font-family: "Orbitron", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text-main);
   margin-top: 32px;
   margin-bottom: 14px;
 }
@@ -379,11 +427,94 @@
 }
 
 .om-lista li {
-  background: #eaf1f8;
-  color: #5483B3;
+  background: #121f35;
+  color: var(--brand-1);
   font-weight: 600;
   font-size: 0.9rem;
   padding: 6px 16px;
   border-radius: 999px;
-  border: 1px solid #c8d6e3;
+  border: 1px solid #2d4269;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: "Orbitron", sans-serif;
+  color: var(--brand-1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.projekt h2,
+.kontakt-box h2,
+.om-mig h2,
+.faq-title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 60px 20px;
+  }
+
+  .projekt,
+  .kontakt,
+  .om-mig {
+    padding: 50px 20px;
+  }
+
+  .projekt-grid {
+    flex-direction: column;
+  }
+
+  .om-mig-box,
+  .kontakt-box {
+    padding: 24px;
+  }
+}
+
+/* Knappar pa startsidan */
+.hem-knappar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.hem-flikar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.hem-flik {
+  text-decoration: none;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 122, 26, 0.35);
+  background: rgba(255, 122, 26, 0.12);
+  border-radius: 999px;
+  font-size: 13px;
+  padding: 6px 12px;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.hem-flik:hover {
+  transform: translateY(-1px);
+  background: rgba(35, 181, 255, 0.16);
+  border-color: rgba(35, 181, 255, 0.45);
 }
