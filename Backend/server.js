@@ -25,6 +25,35 @@ app.get('/api/produkter', (req, res) => {
     res.status(500).json({ error: 'Ett fel uppstod vid hämtning av produkter' });
   }
 });
+app.post('/api/produkter', (req, res) => {
+  try {
+    // 1. Vi tar emot data från React (där heter det 'image')
+    const { namn, beskrivning, sku, pris, image } = req.body;
+
+    // 2. Vi mappar om 'image' till 'bild_url' som databasen kräver
+    const stmt = db.prepare(
+      'INSERT INTO produkter (namn, beskrivning, sku, pris, bild_url) VALUES (?, ?, ?, ?, ?)'
+    );
+    
+    const result = stmt.run(
+      namn, 
+      beskrivning || null, 
+      sku || null, 
+      pris, 
+      image || null // Här skickas värdet in i bild_url-kolumnen
+    );
+
+    res.status(201).json({ 
+      id: result.lastInsertRowid, 
+      message: 'Produkt skapad!' 
+    });
+  } catch (err) {
+    console.error("FEL:", err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log(`Backend server körs på http://localhost:${port}`);

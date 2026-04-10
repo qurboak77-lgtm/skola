@@ -1,0 +1,35 @@
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.admin-header h2 {
+  margin: 0;
+}
+
+.error {
+  color: red;
+}
+
+.produkt-tabell {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.produkt-tabell thead tr {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+.produkt-tabell th,
+.produkt-tabell td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.produkt-tabell tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+

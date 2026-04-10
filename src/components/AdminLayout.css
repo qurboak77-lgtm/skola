@@ -1,0 +1,52 @@
+.admin-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.admin-header {
+  background-color: #222;
+  color: white;
+  padding: 12px 24px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.admin-body {
+  display: flex;
+  flex: 1;
+}
+
+.admin-sidebar {
+  width: 160px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ddd;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+  background-color: #ddd;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 32px;
+}
+

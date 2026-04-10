@@ -18,6 +18,7 @@ export default function Hem() {
             <a href="#kontakt" className="hem-flik">Kontakt</a>
             <a href="#faq" className="hem-flik">FAQ</a>
             <a href="#myinfo" className="hem-flik">MyInfo</a>
+            <a href="/admin" className="admin">Admin</a>
           </div>
           <div className="hem-knappar">
             <a href="#projekt" className="knapp">

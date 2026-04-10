@@ -1,24 +1,80 @@
-// Ändra require till import
-import Database from 'better-sqlite3';
+import React, { useState, useEffect } from 'react';
+import './Produkter.css';
 
-const db = new Database('skola.db');
+const Produkter = () => {
+  // Tillstånd för att spara vår data, kolla om det laddar och fånga fel
+  const [produkter, setProdukter] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS elever (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    namn TEXT NOT NULL,
-    klass TEXT
-  )
-`);
+  // Körs direkt när komponenten/produktsidan dyker upp på skärmen
+  useEffect(() => {
+    // Anropar länken in till Express-servern (Vår "bro")
+    fetch('http://localhost:3000/api/produkter')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Nätverksfel vid hämtning av produkter');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        // Om allt gick bra: Spara in produkterna
+        setProdukter(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
-const laggTill = db.prepare('INSERT INTO elever (namn, klass) VALUES (?, ?)');
+  if (loading) {
+    return (
+      <div className="produkter-container">
+        <h2>Laddar produkter...</h2>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
-laggTill.run('Anna Andersson', '3A');
-laggTill.run('Erik Svensson', '3A');
-laggTill.run('Maja Lindqvist', '3B');
-laggTill.run('Oscar Nilsson', '3B');
+  if (error) {
+    return (
+      <div className="produkter-container">
+        <h2>Fel</h2>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
-const elever = db.prepare('SELECT * FROM elever').all();
+  return (
+    <div className="produkter-container">
+      <h1 className="produkter-title">Våra Produkter</h1>
+      <p className="produkter-subtitle">Upptäck vårt fantastiska sortiment</p>
+      
+      {/* Här nedan "loopar" vi (.map) för att rita ut HTML för varje produkt från databasen */}
+      <div className="produkter-grid">
+        {produkter.map((produkt) => (
+          <div key={produkt.id} className="produkt-card">
+            {produkt.image && (
+              <div className="produkt-image-wrapper">
+                <img src={produkt.image} alt={produkt.namn} className="produkt-image" />
+              </div>
+            )}
+            <div className="produkt-content">
+              <h3 className="produkt-name">{produkt.namn}</h3>
+              {produkt.sku && <span className="produkt-sku">SKU: {produkt.sku}</span>}
+              <p className="produkt-desc">{produkt.beskrivning || 'Ingen beskrivning tillgänglig.'}</p>
+              <div className="produkt-footer">
+                <span className="produkt-price">{produkt.pris} kr</span>
+                <button className="produkt-button">Köp Nu</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-console.log('Databas skapad! Elever i tabellen:');
-console.table(elever);
+export default Produkter;
+
